@@ -26,7 +26,15 @@
         <a href="index.html"> Usagi no OneKeri </a>
       </div>
 
-      <nav>
+      <!-- モバイル用ハンバーガーボタンを追加 -->
+      <button class="hamburger" id="js-hamburger" aria-label="メニューを開く">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- navタグに id="js-nav" を追加 -->
+      <nav id="js-nav">
         <ul>
           <li>
             <a href="index.html">TOP</a>
@@ -46,6 +54,8 @@
         </ul>
       </nav>
     </header>
+
+    <!-- ページ最下部（</body>の直前）にJSを読み込み -->
 
     <!-- MAIN -->
     <main>
@@ -214,5 +224,6 @@
         });
       });
     </script>
+    <script src="js/main.js"></script>
   </body>
 </html>

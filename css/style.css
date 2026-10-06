@@ -47,6 +47,8 @@ section {
   align-items: center;
   justify-content: space-between;
   background-color: #f7d5b9;
+  position: relative;
+  z-index: 100;
 }
 
 .logo a {
@@ -56,6 +58,7 @@ section {
   letter-spacing: 3px;
 }
 
+/* PC：ナビゲーション表示 */
 .header nav ul {
   display: flex;
   align-items: center;
@@ -71,6 +74,7 @@ section {
   letter-spacing: 3px;
 }
 
+/* CONTACTボタン */
 .contact-button {
   border: none !important;
 }
@@ -105,6 +109,96 @@ section {
   background-color: #624638;
   border: none !important;
   text-decoration: none !important;
+}
+
+/* PCではハンバーガーボタンを非表示 */
+.hamburger {
+  display: none;
+}
+
+
+/* ==========================================
+   MOBILE (画面幅 768px 以下)
+   ========================================== */
+@media screen and (max-width: 768px) {
+  .header {
+    height: 80px; /* スマホ用に少し高さをコンパクトに */
+    padding: 0 20px;
+  }
+
+  .logo a {
+    font-size: 20px;
+    letter-spacing: 1.5px;
+  }
+
+  /* ハンバーガーボタンを表示 */
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 22px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 200;
+  }
+
+  /* ハンバーガーの3本線 */
+  .hamburger span {
+    width: 100%;
+    height: 3px;
+    background-color: #7a3f32;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  /* モバイル：メニューの画面全体オーバーレイ */
+  .header nav {
+    position: fixed;
+    top: 0;
+    right: -100%; /* 初期状態は画面外へ */
+    width: 100%;
+    height: 100vh;
+    background-color: #f7d5b9; /* ブランドカラーの背景 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 150;
+  }
+
+  /* モバイル：縦並び配置 */
+  .header nav ul {
+    flex-direction: column;
+    gap: 32px;
+    text-align: center;
+  }
+
+  .header nav ul li a {
+    font-size: 18px;
+  }
+
+  /* ----------------------------------
+     JSで .is-active が付与された時の動き
+     ---------------------------------- */
+
+  /* メニューを右からスライドイン */
+  .header nav.is-active {
+    right: 0;
+  }
+
+  /* 3本線を「×」に変形 */
+  .hamburger.is-active span:nth-child(1) {
+    transform: translateY(9.5px) rotate(45deg);
+  }
+  .hamburger.is-active span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.is-active span:nth-child(3) {
+    transform: translateY(-9.5px) rotate(-45deg);
+  }
 }
 
 /* =========================
@@ -713,18 +807,35 @@ footer p,
   position: fixed;
   right: 30px;
   bottom: 30px;
+
   width: 55px;
   height: 55px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   border: none;
   border-radius: 50%;
+
   background: #e58a4f;
   color: #ffffff;
+
   font-size: 24px;
   font-weight: 700;
+  line-height: 1;
+
   cursor: pointer;
+
   opacity: 0;
   visibility: hidden;
-  transition: 0.3s;
+
+  z-index: 9998;
+
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease,
+    transform 0.3s ease;
 }
 
 .page-top.show {
@@ -744,8 +855,8 @@ footer p,
   position: relative;
   width: 100%;
   background-image:
-    linear-gradient(rgba(248, 247, 244, 0.78), rgba(248, 247, 244, 0.78)),
-    url("images/gazai.png");
+    linear-gradient(rgba(248, 247, 244, 0.15), rgba(248, 247, 244, 0.15)),
+    url("../images/gazai.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -859,8 +970,8 @@ footer p,
   width: 100%;
   padding-bottom: 20px !important;
   background-image:
-    linear-gradient(rgba(248, 247, 244, 0.78), rgba(248, 247, 244, 0.78)),
-    url("images/gazai.png");
+    linear-gradient(rgba(248, 247, 244, 0.15), rgba(248, 247, 244, 0.15)),
+    url("../images/gazai.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -998,8 +1109,8 @@ footer p,
   position: relative;
   width: 100%;
   background-image:
-    linear-gradient(rgba(248, 247, 244, 0.78), rgba(248, 247, 244, 0.78)),
-    url("images/gazai.png");
+    linear-gradient(rgba(248, 247, 244, 0.15), rgba(248, 247, 244, 0.15)),
+    url("../images/gazai.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1212,26 +1323,75 @@ footer p,
 }
 
 /* =========================
-   イラスト・スマホ用
+   HEADER - MOBILE
 ========================= */
 
 @media screen and (max-width: 768px) {
-  /* HEADER */
 
   .header {
-    min-height: auto;
-    padding: 25px 6%;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    padding: 22px 20px 24px;
+    display: flex;
     flex-direction: column;
-    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
   }
 
-  nav ul {
-    gap: 22px;
+  .logo {
+    width: 100%;
+    text-align: center;
   }
 
-  nav a {
-    font-size: 11px;
+  .logo a {
+    font-size: 21px;
+    letter-spacing: 2px;
+    white-space: nowrap;
   }
+
+  .header nav {
+    width: 100%;
+  }
+
+  .header nav ul {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px 18px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .header nav ul li {
+    flex-shrink: 0;
+  }
+
+  .header nav ul li a {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 2px;
+    white-space: nowrap;
+  }
+
+  .contact-button a {
+    min-width: 110px;
+    height: 42px;
+    padding: 0 18px;
+    border-radius: 10px;
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+
+  /* hover effect is unnecessary on touch screens */
+  nav a::after {
+    display: none;
+  }
+
+}
 
   /* TOP */
 
@@ -1333,6 +1493,26 @@ footer p,
     padding: 30px 6%;
   }
 
+  /* =========================
+   PAGE TOP BUTTON - MOBILE
+========================= */
+
+@media screen and (max-width: 768px) {
+
+  .page-top {
+    right: 18px;
+    bottom: 20px;
+
+    width: 50px;
+    height: 50px;
+
+    font-size: 22px;
+
+    z-index: 9998;
+  }
+
+}
+
   /* ILLUSTRATION PAGE */
 
   .illustration-page .page-title,
@@ -1412,6 +1592,25 @@ footer p,
     margin: 20px 0 0;
     transform: none;
   }
+  /* =========================
+   CONTACT FLOW IMAGE - PC
+========================= */
+
+.flow-item {
+  position: relative;
+}
+
+.flow-image {
+  position: absolute !important;
+  top: 50% !important;
+  right: 30px !important;
+  width: 180px !important;
+  height: 150px !important;
+  max-width: 180px !important;
+  max-height: 150px !important;
+  object-fit: contain !important;
+  transform: translateY(-50%) !important;
+}
 
   /* GOODS PAGE */
 
@@ -1516,4 +1715,78 @@ main > section,
 .contact-page .contact-content a {
   color: #7a3f32 !important; /* ロゴやナビと同じ焦げ茶色にしてクッキリ見せる */
 }
+/* =========================
+   ILLUSTRATION GRID - PC
+========================= */
 
+@media screen and (min-width: 769px) {
+  .illustration-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 80px 40px !important;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .illustration-item {
+    width: 100%;
+  }
+}
+/* =========================
+   CONTACT FLOW - PC
+   文字：左 / 画像：右
+========================= */
+
+@media screen and (min-width: 769px) {
+
+  .flow-item {
+    position: relative;
+    min-height: 200px;
+    padding: 30px 250px 30px 35px;
+    overflow: visible;
+  }
+
+  .flow-image {
+    position: absolute !important;
+
+    top: 50% !important;
+    right: 30px !important;
+
+    width: 190px !important;
+    height: 150px !important;
+
+    max-width: 190px !important;
+    max-height: 150px !important;
+
+    object-fit: contain !important;
+    object-position: center !important;
+
+    margin: 0 !important;
+    transform: translateY(-50%) !important;
+  }
+
+}
+/* =========================
+   INDEX CONTACT BUTTON
+========================= */
+
+.contact-preview .button {
+  display: inline-block;
+  padding: 16px 35px;
+  background: #e58a4f;
+  color: #ffffff;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.contact-preview .button:hover {
+  transform: translateY(-3px);
+  opacity: 0.85;
+}
