@@ -28,10 +28,23 @@
 
     <header class="header">
       <div class="logo">
-        <a href="index.html"> Usagi no OneKeri </a>
+        <a href="index.html">Usagi no OneKeri</a>
       </div>
 
-      <nav>
+      <!-- HAMBURGER -->
+      <button
+        class="hamburger"
+        id="hamburger"
+        type="button"
+        aria-label="メニューを開く"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- NAVIGATION -->
+      <nav id="nav">
         <ul>
           <li>
             <a href="index.html">TOP</a>
@@ -51,7 +64,6 @@
         </ul>
       </nav>
     </header>
-
     <!-- ==================== -->
     <!-- MAIN -->
     <!-- ==================== -->
@@ -165,7 +177,20 @@
     <!-- ==================== -->
     <!-- JAVASCRIPT -->
     <!-- ==================== -->
+    <script>
+      // ====================
+      // HAMBURGER MENU
+      // ====================
 
+      const hamburger = document.getElementById("hamburger");
+      const nav = document.getElementById("nav");
+
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("is-active");
+        nav.classList.toggle("is-active");
+      });
+    </script>
+    
     <script>
       // ====================
       // FILTER

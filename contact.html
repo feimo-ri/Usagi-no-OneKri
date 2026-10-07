@@ -31,10 +31,23 @@
 
     <header class="header">
       <div class="logo">
-        <a href="index.html"> Usagi no OneKeri </a>
+        <a href="index.html">Usagi no OneKeri</a>
       </div>
 
-      <nav>
+      <!-- HAMBURGER -->
+      <button
+        class="hamburger"
+        id="hamburger"
+        type="button"
+        aria-label="メニューを開く"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- NAVIGATION -->
+      <nav id="nav">
         <ul>
           <li>
             <a href="index.html">TOP</a>
@@ -47,7 +60,6 @@
           <li>
             <a href="goods.html">GOODS</a>
           </li>
-
 
           <li class="contact-button">
             <a href="contact.html">CONTACT</a>
@@ -135,7 +147,7 @@
               </a>
             </li>
 
-             <!-- litlink -->
+            <!-- litlink -->
             <li>
               <a
                 href="https://lit.link/feimm"
@@ -157,7 +169,7 @@
               </a>
             </li>
 
-             <!-- BOOTH -->
+            <!-- BOOTH -->
             <li>
               <a
                 href="https://bny01keri.booth.pm/"
@@ -212,11 +224,7 @@
             </div>
 
             <div class="flow-item">
-              <img
-                src="images/contact03.png"
-                alt="制作"
-                class="flow-image"
-              />
+              <img src="images/contact03.png" alt="制作" class="flow-image" />
               <span>03</span>
               <h3>制作</h3>
               <p>内容をご確認いただいた後、制作を開始します。</p>
@@ -236,11 +244,7 @@
             </div>
 
             <div class="flow-item">
-              <img
-                src="images/contact05.png"
-                alt="納品"
-                class="flow-image"
-              />
+              <img src="images/contact05.png" alt="納品" class="flow-image" />
               <span>05</span>
               <h3>納品</h3>
               <p>最終確認後、完成したデータを納品します。</p>
@@ -297,6 +301,19 @@
 
       flowItems.forEach((item) => {
         flowObserver.observe(item);
+      });
+    </script>
+    <script>
+      // ====================
+      // HAMBURGER MENU
+      // ====================
+
+      const hamburger = document.getElementById("hamburger");
+      const nav = document.getElementById("nav");
+
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("is-active");
+        nav.classList.toggle("is-active");
       });
     </script>
   </body>

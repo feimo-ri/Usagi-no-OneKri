@@ -115,89 +115,33 @@ section {
 .hamburger {
   display: none;
 }
-
-
-/* ==========================================
-   MOBILE (画面幅 768px 以下)
-   ========================================== */
+/* ハンバーガーメニュー */
 @media screen and (max-width: 768px) {
-  .header {
-    height: 80px; /* スマホ用に少し高さをコンパクトに */
-    padding: 0 20px;
-  }
-
-  .logo a {
-    font-size: 20px;
-    letter-spacing: 1.5px;
-  }
-
-  /* ハンバーガーボタンを表示 */
   .hamburger {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 22px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    width: 44px;
+    height: 44px;
     padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    position: relative;
     z-index: 200;
   }
 
-  /* ハンバーガーの3本線 */
   .hamburger span {
-    width: 100%;
-    height: 3px;
+    display: block;
+    width: 26px;
+    height: 2px;
     background-color: #7a3f32;
     border-radius: 2px;
-    transition: all 0.3s ease;
-  }
-
-  /* モバイル：メニューの画面全体オーバーレイ */
-  .header nav {
-    position: fixed;
-    top: 0;
-    right: -100%; /* 初期状態は画面外へ */
-    width: 100%;
-    height: 100vh;
-    background-color: #f7d5b9; /* ブランドカラーの背景 */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 150;
-  }
-
-  /* モバイル：縦並び配置 */
-  .header nav ul {
-    flex-direction: column;
-    gap: 32px;
-    text-align: center;
-  }
-
-  .header nav ul li a {
-    font-size: 18px;
-  }
-
-  /* ----------------------------------
-     JSで .is-active が付与された時の動き
-     ---------------------------------- */
-
-  /* メニューを右からスライドイン */
-  .header nav.is-active {
-    right: 0;
-  }
-
-  /* 3本線を「×」に変形 */
-  .hamburger.is-active span:nth-child(1) {
-    transform: translateY(9.5px) rotate(45deg);
-  }
-  .hamburger.is-active span:nth-child(2) {
-    opacity: 0;
-  }
-  .hamburger.is-active span:nth-child(3) {
-    transform: translateY(-9.5px) rotate(-45deg);
+    transition:
+      transform 0.3s ease,
+      opacity 0.3s ease;
   }
 }
 
@@ -644,8 +588,8 @@ nav a:hover::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(248, 247, 244, 0.9); 
-  z-index: -1; 
+  background: rgba(248, 247, 244, 0.9);
+  z-index: -1;
 }
 
 /* =========================
@@ -689,23 +633,24 @@ main > section,
   margin: 10px;
   padding: 0 30px;
   background-color: #4a3428 !important; /* ナビボタンと同じ高級感のある焦げ茶色 */
-  color: #ffffff !important;           /* 文字色を白にしてクッキリ見せる */
-  border-radius: 50px !important;       /* 丸っこい可愛いボタンに変身 */
+  color: #ffffff !important; /* 文字色を白にしてクッキリ見せる */
+  border-radius: 50px !important; /* 丸っこい可愛いボタンに変身 */
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 1px;
   text-decoration: none !important;
   box-shadow: 0 4px 15px rgba(74, 52, 40, 0.15); /* ほんのり影をつけて押しやすく */
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
 }
 
 /* ボタンにマウスを乗せたときのふわっとした演出 */
 .contact-page a[href^="mailto:"]:hover,
 .contact-page a[href*="form"]:hover {
   background-color: #624638 !important; /* 少し明るい茶色に変化 */
-  transform: translateY(-2px);           /* ぴょこっと上に浮き上がる */
+  transform: translateY(-2px); /* ぴょこっと上に浮き上がる */
 }
-
 
 /* =========================
    コンテンツとボタンをクッキリ最前面に出す設定
@@ -735,8 +680,6 @@ main > section,
   visibility: visible !important;
   pointer-events: auto !important; /* クリック・タップ操作を100%有効化 */
 }
-
-
 
 /* =========================
    FOOTER
@@ -1195,22 +1138,22 @@ footer p,
 }
 
 .goods-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: #eeece6;
 }
 
 .goods-image img {
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-.goods-image img {
-  display: block;
-  width: 100%;
   height: 100%;
   object-fit: contain;
+  object-position: center;
+  transition: transform 0.5s ease;
 }
 
 .goods-item:hover .goods-image img {
@@ -1323,58 +1266,90 @@ footer p,
 }
 
 /* =========================
-   HEADER - MOBILE
+   MOBILE
+   画面幅 768px 以下
 ========================= */
 
 @media screen and (max-width: 768px) {
 
+  /* =========================
+   SNS / SERVICES - MOBILE
+========================= */
+
+.social-links {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  justify-items: center;
+  align-items: center;
+  max-width: 320px;
+  margin: 30px auto 0;
+}
+
+.social-links li {
+  width: 70px;
+  height: 70px;
+}
+
+.social-links li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.social-links li img {
+  display: block;
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+  /* -------------------------
+     HEADER
+  ------------------------- */
+
   .header {
     width: 100%;
-    height: auto;
-    min-height: 0;
-    padding: 22px 20px 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 18px;
-  }
-
-  .logo {
-    width: 100%;
-    text-align: center;
+    height: 80px;
+    padding: 0 20px;
   }
 
   .logo a {
-    font-size: 21px;
-    letter-spacing: 2px;
-    white-space: nowrap;
+    font-size: 20px;
+    letter-spacing: 1.5px;
+  }
+
+  .hamburger {
+    display: flex;
   }
 
   .header nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
     width: 100%;
+    height: 100vh;
+    background-color: #f7d5b9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 150;
+  }
+
+  .header nav.is-active {
+    right: 0;
   }
 
   .header nav ul {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 12px 18px;
-    margin: 0;
-    padding: 0;
-  }
-
-  .header nav ul li {
-    flex-shrink: 0;
+    flex-direction: column;
+    gap: 32px;
+    text-align: center;
   }
 
   .header nav ul li a {
-    display: block;
-    font-size: 10px;
-    letter-spacing: 2px;
-    white-space: nowrap;
+    font-size: 18px;
   }
 
   .contact-button a {
@@ -1386,14 +1361,27 @@ footer p,
     letter-spacing: 2px;
   }
 
-  /* hover effect is unnecessary on touch screens */
   nav a::after {
     display: none;
   }
 
-}
+  /* ハンバーガー → × */
 
-  /* TOP */
+  .hamburger.is-active span:nth-child(1) {
+    transform: translateY(9.5px) rotate(45deg);
+  }
+
+  .hamburger.is-active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.is-active span:nth-child(3) {
+    transform: translateY(-9.5px) rotate(-45deg);
+  }
+
+  /* -------------------------
+     TOP
+  ------------------------- */
 
   .top {
     min-height: 600px;
@@ -1414,7 +1402,9 @@ footer p,
     font-size: 13px;
   }
 
-  /* ABOUT */
+  /* -------------------------
+     ABOUT
+  ------------------------- */
 
   .about {
     padding: 100px 8%;
@@ -1429,7 +1419,9 @@ footer p,
     line-height: 2;
   }
 
-  /* ILLUSTRATION PREVIEW */
+  /* -------------------------
+     ILLUSTRATION PREVIEW
+  ------------------------- */
 
   .works-preview {
     padding: 100px 8%;
@@ -1440,7 +1432,9 @@ footer p,
     font-size: 14px;
   }
 
-  /* GOODS PREVIEW */
+  /* -------------------------
+     GOODS PREVIEW
+  ------------------------- */
 
   .goods-preview {
     padding: 100px 8%;
@@ -1451,7 +1445,9 @@ footer p,
     font-size: 14px;
   }
 
-  /* GUIDELINES */
+  /* -------------------------
+     GUIDELINES
+  ------------------------- */
 
   .guidelines {
     padding: 100px 8%;
@@ -1475,7 +1471,9 @@ footer p,
     font-size: 13px;
   }
 
-  /* CONTACT PREVIEW */
+  /* -------------------------
+     CONTACT PREVIEW
+  ------------------------- */
 
   .contact-preview {
     padding: 100px 8%;
@@ -1486,34 +1484,31 @@ footer p,
     font-size: 13px;
   }
 
-  /* FOOTER */
+  /* -------------------------
+     FOOTER
+  ------------------------- */
 
   footer,
   .footer {
     padding: 30px 6%;
   }
 
-  /* =========================
-   PAGE TOP BUTTON - MOBILE
-========================= */
-
-@media screen and (max-width: 768px) {
+  /* -------------------------
+     PAGE TOP BUTTON
+  ------------------------- */
 
   .page-top {
     right: 18px;
     bottom: 20px;
-
     width: 50px;
     height: 50px;
-
     font-size: 22px;
-
     z-index: 9998;
   }
 
-}
-
-  /* ILLUSTRATION PAGE */
+  /* -------------------------
+     SUB PAGES - TITLE
+  ------------------------- */
 
   .illustration-page .page-title,
   .goods-page .page-title,
@@ -1530,6 +1525,10 @@ footer p,
   .goods-page .page-title > p:last-child {
     font-size: 13px;
   }
+
+  /* -------------------------
+     ILLUSTRATION PAGE
+  ------------------------- */
 
   .illustration-list {
     padding: 0 8% 100px;
@@ -1551,7 +1550,9 @@ footer p,
     padding: 22px 24px 25px;
   }
 
-  /* LIGHTBOX */
+  /* -------------------------
+     LIGHTBOX
+  ------------------------- */
 
   .lightbox {
     padding: 20px;
@@ -1569,7 +1570,9 @@ footer p,
     font-size: 40px;
   }
 
-  /* CONTACT PAGE */
+  /* -------------------------
+     CONTACT PAGE
+  ------------------------- */
 
   .contact-item h2 {
     font-size: 24px;
@@ -1585,34 +1588,14 @@ footer p,
     padding-right: 25px;
   }
 
+  /* FLOW画像はスマホでは非表示 */
   .flow-image {
-    position: static;
-    width: 100%;
-    height: auto;
-    margin: 20px 0 0;
-    transform: none;
+    display: none;
   }
-  /* =========================
-   CONTACT FLOW IMAGE - PC
-========================= */
 
-.flow-item {
-  position: relative;
-}
-
-.flow-image {
-  position: absolute !important;
-  top: 50% !important;
-  right: 30px !important;
-  width: 180px !important;
-  height: 150px !important;
-  max-width: 180px !important;
-  max-height: 150px !important;
-  object-fit: contain !important;
-  transform: translateY(-50%) !important;
-}
-
-  /* GOODS PAGE */
+  /* -------------------------
+     GOODS PAGE
+  ------------------------- */
 
   .goods-list {
     padding: 0 0 100px;
@@ -1648,7 +1631,9 @@ footer p,
     margin-top: 60px;
   }
 
-  /* FILTER */
+  /* -------------------------
+     FILTER
+  ------------------------- */
 
   .illustration-filter {
     margin-bottom: 50px;
@@ -1659,61 +1644,8 @@ footer p,
     padding: 9px 23px;
     font-size: 12px;
   }
-/* =========================
-   下層ページの背景とモヤの設定（完成版）
-========================= */
-
-.illustration-page,
-.goods-page,
-.contact-page {
-  position: relative;
-  background-image: url("../images/gazai.png");
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  z-index: 1;
 }
 
-.illustration-page::before,
-.goods-page::before,
-.contact-page::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(248, 247, 244, 0.9); 
-  z-index: -1; /* モヤを完全に後ろに回す */
-}
-
-/* =========================
-   文字のかすみを消し、ボタンのデザインを完全復元する設定
-========================= */
-
-/* 各要素の重なり順を正しくして、白いモヤの後ろに隠れるのを防ぐ */
-.illustration-page > *,
-.goods-page > *,
-.contact-page > *,
-main > div,
-main > section,
-.guidelines {
-  position: relative;
-  z-index: 2;
-}
-
-/* ★修正ポイント：ボタン元のデザイン（丸み・サイズ）を壊さず、色と重なり順だけを正す */
-.contact-page a,
-.contact-page button,
-.contact-page [class*="button"],
-.contact-page [class*="icon"] {
-  position: relative !important;
-  z-index: 5 !important;
-  pointer-events: auto !important; /* クリック操作を100%有効化 */
-}
-
-/* 「SEND E-MAIL」と「CONTACT FORM」の文字色を元の見え方に修正 */
-.contact-page .contact-content a {
-  color: #7a3f32 !important; /* ロゴやナビと同じ焦げ茶色にしてクッキリ見せる */
-}
 /* =========================
    ILLUSTRATION GRID - PC
 ========================= */
@@ -1738,7 +1670,6 @@ main > section,
 ========================= */
 
 @media screen and (min-width: 769px) {
-
   .flow-item {
     position: relative;
     min-height: 200px;
@@ -1764,7 +1695,6 @@ main > section,
     margin: 0 !important;
     transform: translateY(-50%) !important;
   }
-
 }
 /* =========================
    INDEX CONTACT BUTTON
@@ -1788,4 +1718,333 @@ main > section,
 .contact-preview .button:hover {
   transform: translateY(-3px);
   opacity: 0.85;
+}
+/* =========================================================
+   MOBILE DEVICE SUPPORT
+   iPhone / Galaxy S series
+========================================================= */
+
+/* =========================
+   iPhone / Galaxy S
+   430px以下
+========================= */
+
+@media screen and (max-width: 430px) {
+
+  /* -------------------------
+     HEADER
+  ------------------------- */
+
+  .header {
+    height: 72px;
+    padding: 0 18px;
+  }
+
+  .logo {
+    font-size: 18px;
+  }
+
+  .hamburger {
+    width: 44px;
+    height: 44px;
+  }
+
+  /* -------------------------
+     NAVIGATION
+  ------------------------- */
+
+  .header nav ul {
+    gap: 12px;
+  }
+
+  .header nav a {
+    font-size: 16px;
+  }
+
+  /* -------------------------
+     PAGE TITLE
+  ------------------------- */
+
+  .page-title {
+    padding: 90px 20px 50px;
+  }
+
+  .page-title h1 {
+    font-size: 36px;
+  }
+
+  .page-title p {
+    font-size: 14px;
+  }
+
+  /* -------------------------
+     CONTACT
+  ------------------------- */
+
+  .contact-page {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .contact-item {
+    padding: 30px 20px;
+  }
+
+  .contact-item h2 {
+    font-size: 25px;
+  }
+
+  .contact-item p {
+    font-size: 14px;
+  }
+
+  /* -------------------------
+     CONTACT BUTTON
+  ------------------------- */
+
+  .contact-buttons {
+    width: 100%;
+  }
+
+  .contact-buttons .button {
+    width: 100%;
+    min-height: 58px;
+  }
+
+  /* -------------------------
+     SNS / SERVICES
+     3 × 2
+  ------------------------- */
+
+  .social-links {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px 12px;
+    width: 100%;
+    max-width: 330px;
+    margin: 30px auto 0;
+  }
+
+  .social-links li {
+    width: 65px;
+    height: 65px;
+  }
+
+  .social-links li img {
+    width: 55px;
+    height: 55px;
+  }
+
+  /* -------------------------
+     FLOW
+  ------------------------- */
+
+  .request-flow {
+    width: 100%;
+  }
+
+  .flow-item {
+    width: 100%;
+    padding: 25px 20px;
+    min-height: auto;
+  }
+
+  .flow-item h3 {
+    font-size: 20px;
+  }
+
+  .flow-item p {
+    font-size: 14px;
+  }
+
+  /* FLOW images hidden on mobile */
+  .flow-image {
+    display: none !important;
+  }
+
+  /* -------------------------
+     GOODS
+  ------------------------- */
+
+  .goods-page {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .goods-list {
+    width: 100%;
+  }
+
+  .goods-item {
+    width: 280px;
+    flex-shrink: 0;
+  }
+
+  .goods-image {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+  }
+
+  .goods-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  /* -------------------------
+     ILLUSTRATION
+  ------------------------- */
+
+  .illustration-page {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .illustration-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .illustration-item img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* -------------------------
+     FOOTER
+  ------------------------- */
+
+  .footer {
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   iPhone SE / Galaxy S compact
+   375px以下
+========================================================= */
+
+@media screen and (max-width: 375px) {
+
+  .header {
+    padding: 0 14px;
+  }
+
+  .logo {
+    font-size: 16px;
+  }
+
+  .page-title {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .page-title h1 {
+    font-size: 32px;
+  }
+
+  .contact-page {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .contact-item {
+    padding: 25px 16px;
+  }
+
+  .contact-item h2 {
+    font-size: 23px;
+  }
+
+  .social-links {
+    gap: 16px 8px;
+    max-width: 300px;
+  }
+
+  .social-links li {
+    width: 60px;
+    height: 60px;
+  }
+
+  .social-links li img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .goods-item {
+    width: 260px;
+  }
+}
+/* =========================================================
+   CONTACT BUTTONS - MOBILE
+========================================================= */
+
+@media screen and (max-width: 768px) {
+  .contact-buttons {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 15px !important;
+    margin: 25px auto 0 !important;
+  }
+
+  .contact-buttons .button {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+
+    margin: 0 !important;
+    box-sizing: border-box !important;
+  }
+}
+/* =========================================================
+   PROFILE / ABOUT - MOBILE
+========================================================= */
+
+@media screen and (max-width: 768px) {
+
+  .about-content {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 35px !important;
+    width: 100% !important;
+  }
+
+  /* プロフィール画像を上に */
+  .about-icon {
+    order: 1 !important;
+    width: 220px !important;
+    height: 220px !important;
+    flex-shrink: 0 !important;
+    margin: 0 auto !important;
+  }
+
+  /* 自己紹介を画像の下に */
+  .about-text {
+    order: 2 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .about-text h2 {
+    margin-bottom: 25px !important;
+  }
+
+  .about-text p {
+    width: 100% !important;
+    max-width: 100% !important;
+    font-size: 16px !important;
+    line-height: 2 !important;
+  }
 }

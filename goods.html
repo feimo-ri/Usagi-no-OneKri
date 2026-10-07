@@ -26,14 +26,27 @@
 
   <body>
     <!-- =========================
-         HEADER
-    ========================= -->
+     HEADER
+========================= -->
     <header class="header">
       <div class="logo">
         <a href="index.html">Usagi no OneKeri</a>
       </div>
 
-      <nav>
+      <!-- HAMBURGER -->
+      <button
+        class="hamburger"
+        id="hamburger"
+        type="button"
+        aria-label="メニューを開く"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- NAVIGATION -->
+      <nav id="nav">
         <ul>
           <li>
             <a href="index.html">TOP</a>
@@ -77,7 +90,7 @@
               <!-- GOODS 01 -->
               <article class="goods-item">
                 <div class="goods-image">
-                <img src="images/koujilogo.png" alt="ウサギの一蹴り" />
+                  <img src="images/koujilogo.png" alt="ウサギの一蹴り" />
                 </div>
 
                 <div class="goods-info">
@@ -89,7 +102,7 @@
               <!-- GOODS 02 -->
               <article class="goods-item">
                 <div class="goods-image">
-                <img src="images/koujilogo.png" alt="ウサギの一蹴り" />
+                  <img src="images/koujilogo.png" alt="ウサギの一蹴り" />
                 </div>
 
                 <div class="goods-info">
@@ -101,7 +114,7 @@
               <!-- GOODS 03 -->
               <article class="goods-item">
                 <div class="goods-image">
-                <img src="images/koujilogo.png" alt="ウサギの一蹴り" />
+                  <img src="images/koujilogo.png" alt="ウサギの一蹴り" />
                 </div>
 
                 <div class="goods-info">
@@ -113,7 +126,7 @@
               <!-- GOODS 04 -->
               <article class="goods-item">
                 <div class="goods-image">
-                <img src="images/koujilogo.png" alt="ウサギの一蹴り" />
+                  <img src="images/koujilogo.png" alt="ウサギの一蹴り" />
                 </div>
 
                 <div class="goods-info">
@@ -131,7 +144,7 @@
               <!-- GOODS 01 -->
               <article class="goods-item">
                 <div class="goods-image">
-                <img src="images/koujilogo.png" alt="ウサギの一蹴り" />
+                  <img src="images/koujilogo.png" alt="ウサギの一蹴り" />
                 </div>
 
                 <div class="goods-info">
@@ -143,7 +156,7 @@
               <!-- GOODS 02 -->
               <article class="goods-item">
                 <div class="goods-image">
-                <img src="images/koujilogo.png" alt="ウサギの一蹴り" />
+                  <img src="images/koujilogo.png" alt="ウサギの一蹴り" />
                 </div>
 
                 <div class="goods-info">
@@ -155,7 +168,7 @@
               <!-- GOODS 03 -->
               <article class="goods-item">
                 <div class="goods-image">
-                <img src="images/koujilogo.png" alt="ウサギの一蹴り" />
+                  <img src="images/koujilogo.png" alt="ウサギの一蹴り" />
                 </div>
 
                 <div class="goods-info">
@@ -167,7 +180,7 @@
               <!-- GOODS 04 -->
               <article class="goods-item">
                 <div class="goods-image">
-                <img src="images/koujilogo.png" alt="ウサギの一蹴り" />
+                  <img src="images/koujilogo.png" alt="ウサギの一蹴り" />
                 </div>
 
                 <div class="goods-info">
@@ -200,5 +213,18 @@
     <footer>
       <p>&copy; 2026 Usagi no OneKeri</p>
     </footer>
+    <script>
+      // ====================
+      // HAMBURGER MENU
+      // ====================
+
+      const hamburger = document.getElementById("hamburger");
+      const nav = document.getElementById("nav");
+
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("is-active");
+        nav.classList.toggle("is-active");
+      });
+    </script>
   </body>
 </html>
