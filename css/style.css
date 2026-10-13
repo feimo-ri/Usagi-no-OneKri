@@ -695,7 +695,7 @@ footer p,
   cursor: pointer;
   opacity: 0;
   visibility: hidden;
-  z-index: 9998;
+  z-index:2147483647;
   transition:
     opacity 0.3s ease,
     visibility 0.3s ease,
