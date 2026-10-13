@@ -1,0 +1,414 @@
+```html
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>プライバシーポリシー | Usagi no OneKeri</title>
+
+    <meta
+      name="description"
+      content="Usagi no OneKeriのプライバシーポリシーです。個人情報の取り扱い、Cookie、広告配信について説明します。"
+    />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- 既存サイトのCSS -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- プライバシーポリシー専用CSS -->
+    <style>
+      /* =========================
+       PRIVACY PAGE
+    ========================= */
+
+      .privacy-page {
+        position: relative;
+        width: 100%;
+        min-height: 80vh;
+        padding: 90px 6% 120px;
+        background-image:
+          linear-gradient(rgba(248, 247, 244, 0.88), rgba(248, 247, 244, 0.88)),
+          url("images/gazai.png");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+      }
+
+      .privacy-content {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 60px 65px;
+        background: rgba(255, 255, 255, 0.94);
+        border-radius: 30px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+        line-height: 2;
+        overflow-wrap: anywhere;
+      }
+
+      /* ページタイトル */
+
+      .privacy-heading {
+        margin-bottom: 15px;
+        color: #7a3f32;
+        font-size: clamp(28px, 4vw, 38px);
+        font-weight: 700;
+        line-height: 1.5;
+        letter-spacing: 0.08em;
+        text-align: center;
+      }
+
+      .privacy-subtitle {
+        margin-bottom: 15px;
+        color: #8b4a3a;
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 0.2em;
+        text-align: center;
+      }
+
+      .privacy-updated {
+        margin-bottom: 40px;
+        color: #888;
+        font-size: 12px;
+        text-align: center;
+      }
+
+      .privacy-intro {
+        margin-bottom: 45px;
+        color: #555;
+        font-size: 14px;
+        line-height: 2.2;
+      }
+
+      /* 各項目 */
+
+      .privacy-section {
+        margin-top: 38px;
+      }
+
+      .privacy-section h2 {
+        margin-bottom: 18px;
+        padding: 0 0 12px 15px;
+        border-bottom: 1px solid #eadbd1;
+        border-left: 4px solid #e58a4f;
+        color: #7a3f32;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 1.7;
+      }
+
+      .privacy-section p {
+        margin-bottom: 15px;
+        color: #555;
+        font-size: 14px;
+        line-height: 2.1;
+      }
+
+      .privacy-section p:last-child {
+        margin-bottom: 0;
+      }
+
+      .privacy-section a {
+        color: #8b4a3a;
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 4px;
+        overflow-wrap: anywhere;
+        transition: opacity 0.3s ease;
+      }
+
+      .privacy-section a:hover {
+        opacity: 0.65;
+      }
+
+      .privacy-signature {
+        margin-top: 55px;
+        color: #7a3f32;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-align: right;
+      }
+
+      /* =========================
+       MOBILE
+    ========================= */
+
+      @media screen and (max-width: 768px) {
+        .privacy-page {
+          padding: 65px 6% 80px;
+          background-attachment: scroll;
+        }
+
+        .privacy-content {
+          padding: 40px 30px;
+          border-radius: 24px;
+        }
+
+        .privacy-heading {
+          font-size: 28px;
+        }
+
+        .privacy-updated {
+          margin-bottom: 30px;
+        }
+
+        .privacy-intro {
+          margin-bottom: 35px;
+          font-size: 14px;
+        }
+
+        .privacy-section {
+          margin-top: 32px;
+        }
+
+        .privacy-section h2 {
+          font-size: 16px;
+        }
+
+        .privacy-section p {
+          font-size: 13px;
+        }
+      }
+
+      /* =========================
+       SMALL MOBILE
+    ========================= */
+
+      @media screen and (max-width: 430px) {
+        .privacy-page {
+          padding: 40px 16px 60px;
+        }
+
+        .privacy-content {
+          padding: 30px 20px;
+          border-radius: 20px;
+        }
+
+        .privacy-heading {
+          font-size: 24px;
+          letter-spacing: 0.04em;
+        }
+
+        .privacy-subtitle {
+          font-size: 10px;
+        }
+
+        .privacy-updated {
+          margin-bottom: 25px;
+          font-size: 11px;
+        }
+
+        .privacy-intro {
+          font-size: 13px;
+          line-height: 2;
+        }
+
+        .privacy-section {
+          margin-top: 28px;
+        }
+
+        .privacy-section h2 {
+          padding-left: 10px;
+          font-size: 15px;
+        }
+
+        .privacy-section p {
+          font-size: 13px;
+          line-height: 2;
+        }
+
+        .privacy-signature {
+          margin-top: 40px;
+          font-size: 12px;
+        }
+      }
+
+      @media screen and (max-width: 375px) {
+        .privacy-content {
+          padding: 25px 16px;
+        }
+
+        .privacy-heading {
+          font-size: 22px;
+        }
+
+        .privacy-section h2 {
+          font-size: 14px;
+        }
+
+        .privacy-section p {
+          font-size: 12px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- HEADER -->
+    <header class="header">
+      <div class="logo">
+        <a href="index.html">Usagi no OneKeri</a>
+      </div>
+
+      <button
+        class="hamburger"
+        id="hamburger"
+        type="button"
+        aria-label="メニューを開く"
+        aria-expanded="false"
+        aria-controls="nav-menu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav id="nav-menu" aria-label="メインナビゲーション">
+        <ul>
+          <li><a href="index.html">TOP</a></li>
+          <li><a href="illustration.html">ILLUSTRATION</a></li>
+          <li><a href="goods.html">GOODS</a></li>
+          <li class="contact-button">
+            <a href="contact.html">CONTACT</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- PRIVACY POLICY -->
+    <main class="privacy-page">
+      <article class="privacy-content">
+        <p class="privacy-subtitle">PRIVACY POLICY</p>
+
+        <h1 class="privacy-heading">プライバシーポリシー</h1>
+
+        <p class="privacy-updated">制定日：2026年10月14日</p>
+
+        <p class="privacy-intro">
+          Usagi no OneKeri（以下、「当サイト」といいます。）は、
+          当サイトをご利用になる皆さまの個人情報を適切に取り扱うよう努めます。
+          本ページでは、当サイトにおける個人情報の取り扱いについて説明します。
+        </p>
+
+        <section class="privacy-section">
+          <h2>1. 個人情報の取り扱い</h2>
+
+          <p>
+            当サイトでは、お問い合わせなどを通じて、
+            お名前、メールアドレス、お問い合わせ内容などの情報を
+            ご提供いただく場合があります。
+          </p>
+
+          <p>
+            取得した情報は、お問い合わせへの回答や必要な連絡など、
+            取得時にお知らせした目的の範囲内で利用します。
+            法令に基づく場合などを除き、適切な理由なく第三者に提供しません。
+          </p>
+        </section>
+
+        <section class="privacy-section">
+          <h2>2. Cookie（クッキー）について</h2>
+
+          <p>
+            当サイトでは、利便性の向上、アクセス状況の把握、
+            広告配信などのためにCookieなどの技術が使用される場合があります。
+            Cookieは、利用者のブラウザに保存される小さなデータです。
+          </p>
+
+          <p>
+            ブラウザの設定によってCookieを無効にすることができます。
+            ただし、その場合、サイトの一部機能が正常に動作しないことがあります。
+          </p>
+        </section>
+
+        <section class="privacy-section">
+          <h2>3. 広告配信について</h2>
+
+          <p>
+            当サイトでは、現在、第三者配信の広告サービスを利用していません。
+            今後、広告サービスを導入する場合は、
+            必要に応じて本プライバシーポリシーを更新します。
+          </p>
+        </section>
+
+        <section class="privacy-section">
+          <h2>4. アクセス解析について</h2>
+
+          <p>
+            当サイトでは、アクセス状況を把握し、サイトを改善するために、
+            アクセス解析サービスを利用する場合があります。
+            その際、Cookieなどを利用して閲覧情報が収集されることがあります。
+          </p>
+        </section>
+
+        <section class="privacy-section">
+          <h2>5. 外部サイトへのリンク</h2>
+
+          <p>
+            当サイトには、外部サイトへのリンクが含まれる場合があります。
+            リンク先のサイトで提供される情報やサービス、
+            個人情報の取り扱いについて、当サイトは責任を負いません。
+            各サイトのプライバシーポリシーをご確認ください。
+          </p>
+        </section>
+
+        <section class="privacy-section">
+          <h2>6. 個人情報の管理</h2>
+
+          <p>
+            当サイトでは、取得した個人情報について、
+            漏えい、紛失、不正アクセスなどを防ぐため、 適切な管理に努めます。
+          </p>
+        </section>
+
+        <section class="privacy-section">
+          <h2>7. プライバシーポリシーの変更</h2>
+
+          <p>
+            法令の改正やサイトの運営方針の変更などに応じて、
+            本ポリシーを改定する場合があります。
+            改定後の内容は、本ページに掲載した時点から適用します。
+          </p>
+        </section>
+
+        <section class="privacy-section">
+          <h2>8. お問い合わせ</h2>
+
+          <p>
+            個人情報の取り扱いに関するお問い合わせは、
+            <a href="contact.html">お問い合わせページ</a>
+            よりご連絡ください。
+          </p>
+        </section>
+
+        <p class="privacy-signature">Usagi no OneKeri</p>
+      </article>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>&copy; 2026 Usagi no OneKeri</p>
+
+      <p class="privacy-link">
+        <a href="privacy.html">プライバシーポリシー</a>
+      </p>
+    </footer>
+
+    <!-- 既存サイトのJavaScript -->
+    <script src="js/main.js" defer></script>
+  </body>
+</html>
+```

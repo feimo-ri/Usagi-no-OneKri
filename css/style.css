@@ -1495,7 +1495,12 @@ footer p,
     padding: 9px 23px;
     font-size: 12px;
   }
+
 }
+
+/* =========================
+   下層ページの背景とモヤの設定（完成版）
+========================= */
 
 /* =========================================================
    PC - 769px以上
@@ -1535,6 +1540,7 @@ footer p,
     transform: translateY(-50%);
   }
 }
+
 
 /* =========================================================
    MOBILE DEVICE SUPPORT - 430px以下
@@ -1714,4 +1720,25 @@ footer p,
   .goods-item {
     width: 260px;
   }
+}
+
+/* =========================
+   PRIVACY POLICY LINK
+========================= */
+
+.privacy-link {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 13px;
+}
+
+.privacy-link a {
+  color: #f7d5b9;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.privacy-link a:hover {
+  opacity: 0.7;
+  text-decoration: underline;
 }
