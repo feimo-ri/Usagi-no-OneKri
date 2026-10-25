@@ -1927,9 +1927,9 @@ footer p,
    MOBILE FIXED GLASS HEADER
 ========================= */
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
 
-  header {
+  .header {
     position: fixed;
     top: 0;
     left: 0;
@@ -1944,12 +1944,8 @@ footer p,
     /* ほんのり境界線 */
     border-bottom: 1px solid rgba(255, 255, 255, 0.45);
 
-    /* 影を控えめに */
+    /* 控えめな影 */
     box-shadow: 0 2px 12px rgba(122, 63, 50, 0.08);
   }
 
-  /* 固定ヘッダーの分だけ本文を下げる */
-  body {
-    padding-top: 70px;
-  }
 }
