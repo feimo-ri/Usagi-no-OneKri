@@ -1923,3 +1923,33 @@ footer p,
     padding: 17px 6px;
   }
 }
+/* =========================
+   MOBILE FIXED GLASS HEADER
+========================= */
+
+@media (max-width: 768px) {
+
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+
+    /* ガラス風 */
+    background: rgba(247, 213, 185, 0.78);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    /* ほんのり境界線 */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.45);
+
+    /* 影を控えめに */
+    box-shadow: 0 2px 12px rgba(122, 63, 50, 0.08);
+  }
+
+  /* 固定ヘッダーの分だけ本文を下げる */
+  body {
+    padding-top: 70px;
+  }
+}
