@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", () => {
   // =========================
   // HAMBURGER MENU
@@ -9,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("js-hamburger");
 
   const nav =
+    document.getElementById("nav") ||
     document.getElementById("nav-menu") ||
     document.getElementById("js-nav");
 
@@ -50,6 +50,41 @@ document.addEventListener("DOMContentLoaded", () => {
       window.scrollTo({
         top: 0,
         behavior: "smooth",
+      });
+    });
+  }
+
+  // =========================
+  // ILLUSTRATION FILTER
+  // Works / Fan Art
+  // =========================
+
+  const filterButtons = document.querySelectorAll(".filter-button");
+  const illustrationItems =
+    document.querySelectorAll(".illustration-item");
+
+  if (filterButtons.length && illustrationItems.length) {
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const filter = button.dataset.filter;
+
+        // ボタンの状態を変更
+        filterButtons.forEach((btn) => {
+          btn.classList.remove("active");
+        });
+
+        button.classList.add("active");
+
+        // カテゴリーで絞り込む
+        illustrationItems.forEach((item) => {
+          const category = item.dataset.category;
+
+          if (category === filter) {
+            item.style.display = "";
+          } else {
+            item.style.display = "none";
+          }
+        });
       });
     });
   }

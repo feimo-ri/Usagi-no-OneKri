@@ -37,6 +37,7 @@
         id="hamburger"
         type="button"
         aria-label="メニューを開く"
+        aria-expanded="false"
       >
         <span></span>
         <span></span>
@@ -64,31 +65,42 @@
         </ul>
       </nav>
     </header>
+
     <!-- ==================== -->
     <!-- MAIN -->
     <!-- ==================== -->
 
     <main class="illustration-page">
+      <!-- ==================== -->
       <!-- PAGE TITLE -->
+      <!-- ==================== -->
 
       <section class="page-title">
-        <h1>Works</h1>
+        <h1>Illustration</h1>
 
         <p>制作したイラスト作品を掲載しています</p>
         <p>※イラストは随時更新していきます</p>
       </section>
 
       <!-- ==================== -->
-      <!-- FILTER -->
+      <!-- CATEGORY FILTER -->
       <!-- ==================== -->
 
       <section class="illustration-filter">
-        <button class="filter-button active" data-filter="all" type="button">
-          ALL
+        <button
+          class="filter-button"
+          data-filter="works"
+          type="button"
+        >
+          Works
         </button>
 
-        <button class="filter-button" data-filter="2026" type="button">
-          2026
+        <button
+          class="filter-button active"
+          data-filter="fanart"
+          type="button"
+        >
+          Fan Art
         </button>
       </section>
 
@@ -98,12 +110,18 @@
 
       <section class="illustration-list">
         <div class="illustration-grid">
-          <!-- WORK 01 -->
+          <!-- ==================== -->
+          <!-- FAN ART 01 -->
+          <!-- ==================== -->
 
-          <article class="illustration-item" data-year="2026">
+          <article
+            class="illustration-item"
+            data-category="fanart"
+            data-year="2026"
+          >
             <img
               src="images/illustration01.jpg"
-              alt="イラスト作品1"
+              alt="七宝もこも様のファンアート"
               class="lightbox-image"
             />
 
@@ -118,16 +136,22 @@
                 </a>
               </h2>
 
-              <p>Illustrated/フェイ・モーリ</p>
+              <p>Illustrated / フェイ・モーリ</p>
             </div>
           </article>
 
-          <!-- WORK 02 -->
+          <!-- ==================== -->
+          <!-- FAN ART 02 -->
+          <!-- ==================== -->
 
-          <article class="illustration-item" data-year="2026">
+          <article
+            class="illustration-item"
+            data-category="fanart"
+            data-year="2026"
+          >
             <img
               src="images/illustration02.gif"
-              alt="イラスト作品2"
+              alt="七宝もこも様のファンアート"
               class="lightbox-image"
             />
 
@@ -142,7 +166,7 @@
                 </a>
               </h2>
 
-              <p>Illustrated/フェイ・モーリ</p>
+              <p>Illustrated / フェイ・モーリ</p>
             </div>
           </article>
         </div>
@@ -181,63 +205,17 @@
     <!-- ==================== -->
     <!-- JAVASCRIPT -->
     <!-- ==================== -->
-    <script>
-      // ====================
-      // HAMBURGER MENU
-      // ====================
 
-      const hamburger = document.getElementById("hamburger");
-      const nav = document.getElementById("nav");
-
-      hamburger.addEventListener("click", () => {
-        hamburger.classList.toggle("is-active");
-        nav.classList.toggle("is-active");
-      });
-    </script>
+    <script src="js/main.js"></script>
 
     <script>
-      // ====================
-      // FILTER
-      // ====================
-
-      const filterButtons = document.querySelectorAll(".filter-button");
-
-      const illustrationItems = document.querySelectorAll(".illustration-item");
-
-      filterButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-          const filter = button.dataset.filter;
-
-          // ボタンの状態を変更
-          filterButtons.forEach((btn) => {
-            btn.classList.remove("active");
-          });
-
-          button.classList.add("active");
-
-          // イラストを絞り込む
-          illustrationItems.forEach((item) => {
-            const year = item.dataset.year;
-
-            if (filter === "all" || year === filter) {
-              item.style.display = "";
-            } else {
-              item.style.display = "none";
-            }
-          });
-        });
-      });
-
       // ====================
       // LIGHTBOX
       // ====================
 
       const images = document.querySelectorAll(".lightbox-image");
-
       const lightbox = document.getElementById("lightbox");
-
       const lightboxImage = document.getElementById("lightboxImage");
-
       const lightboxClose = document.getElementById("lightboxClose");
 
       images.forEach((image) => {
