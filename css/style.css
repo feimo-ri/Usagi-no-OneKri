@@ -594,7 +594,7 @@ main > section,
   visibility: visible !important;
 }
 
-.contact-page a[href*="form"] {
+.contact-page .contact-buttons .button {
   display: inline-flex !important;
   align-items: center;
   justify-content: center;
@@ -615,7 +615,7 @@ main > section,
     transform 0.3s ease;
 }
 
-.contact-page a[href*="form"]:hover {
+.contact-page .contact-buttons .button:hover {
   background-color: #624638 !important;
   transform: translateY(-2px);
 }
@@ -704,7 +704,7 @@ footer p,
   cursor: pointer;
   opacity: 0;
   visibility: hidden;
-  z-index:2147483647;
+  z-index: 2147483647;
   transition:
     opacity 0.3s ease,
     visibility 0.3s ease,
@@ -1115,6 +1115,13 @@ footer p,
     letter-spacing: 1.5px;
   }
 
+  .logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+  }
+
   .hamburger {
     display: flex;
     flex-direction: column;
@@ -1127,7 +1134,8 @@ footer p,
     border: none;
     background: transparent;
     cursor: pointer;
-    position: relative;
+    position: absolute;
+    right: 20px;
     z-index: 200;
   }
 
@@ -1136,14 +1144,14 @@ footer p,
     width: 26px;
     height: 2px;
     background-color: #7a3f32;
-    border-radius: 2px;
     transition:
       transform 0.3s ease,
       opacity 0.3s ease;
+    transform-origin: center;
   }
 
   .hamburger.is-active span:nth-child(1) {
-    transform: translateY(9.5px) rotate(45deg);
+    transform: translateY(8px) rotate(45deg);
   }
 
   .hamburger.is-active span:nth-child(2) {
@@ -1151,7 +1159,7 @@ footer p,
   }
 
   .hamburger.is-active span:nth-child(3) {
-    transform: translateY(-9.5px) rotate(-45deg);
+    transform: translateY(-8px) rotate(-45deg);
   }
 
   .header nav {
@@ -1406,6 +1414,21 @@ footer p,
     margin: 25px auto 0;
   }
 
+  .contact-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .contact-buttons .button {
+    width: 100%;
+    max-width: 424px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .contact-buttons .button {
     display: flex !important;
     align-items: center;
@@ -1504,7 +1527,6 @@ footer p,
     padding: 9px 23px;
     font-size: 12px;
   }
-
 }
 
 /* =========================
@@ -1549,7 +1571,6 @@ footer p,
     transform: translateY(-50%);
   }
 }
-
 
 /* =========================================================
    MOBILE DEVICE SUPPORT - 430px以下
@@ -1791,7 +1812,6 @@ footer p,
   font-weight: 500;
 }
 
-
 .news-list {
   max-height: 280px;
   overflow-y: scroll;
@@ -1822,7 +1842,6 @@ footer p,
 .news-list::-webkit-scrollbar-thumb:hover {
   background: #7a3f32;
 }
-
 
 .news-item {
   display: grid;
@@ -1937,7 +1956,6 @@ footer p,
 ========================= */
 
 @media screen and (max-width: 768px) {
-
   .header {
     position: fixed;
     top: 0;
@@ -1956,7 +1974,6 @@ footer p,
     /* 控えめな影 */
     box-shadow: 0 2px 12px rgba(122, 63, 50, 0.08);
   }
-
 }
 /* =========================
    CONTACT PAGE - TOP SPACING
