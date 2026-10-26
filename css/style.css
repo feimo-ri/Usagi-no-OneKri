@@ -1949,3 +1949,17 @@ footer p,
   }
 
 }
+/* =========================
+   CONTACT PAGE - TOP SPACING
+========================= */
+
+.contact-page {
+  padding-top: 60px;
+}
+
+/* モバイル */
+@media screen and (max-width: 768px) {
+  .contact-page {
+    padding-top: 90px;
+  }
+}
