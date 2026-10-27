@@ -1404,15 +1404,35 @@ footer p,
     font-size: 13px;
   }
 
-  .contact-buttons {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    margin: 25px auto 0;
-  }
+ .contact-buttons {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  margin: 30px auto 0;
+}
+
+.contact-button-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.contact-button-label {
+  margin: 0 0 4px;
+  color: #7a3f32;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.contact-button-group .button {
+  margin: 0 !important;
+}
 
   .contact-buttons {
     display: flex;
